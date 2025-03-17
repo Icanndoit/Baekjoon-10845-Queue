@@ -1,0 +1,49 @@
+#include<iostream>
+#include<queue>  // Queue 헤더파일
+using namespace std;
+
+int main(void) {
+	queue<int> Queue;  // int형 자료를 저장하는 큐
+	int end;  // 프로그램 실행 횟수
+	string command;  // 명령어
+
+	cin >> end;
+	for (int i = 0; i < end; i++)
+	{
+		cin >> command;
+		if (command == "push") {
+			int data;  cin >> data;
+			Queue.push(data);  // 큐에 데이터를 추가하는 함수
+		}
+		else if (command == "pop") {
+			if (Queue.empty() == true)  // 큐가 비어있는 경우
+				cout << -1 << endl;
+			else {
+				cout << Queue.front() << endl;  // 큐에서 맨 앞의 원소를 리턴
+				Queue.pop();  // 맨 앞 원소 삭제
+			}
+		}
+		else if (command == "size")
+			cout << Queue.size() << endl;  // 큐의 크기 출력
+		else if (command == "empty") {
+			if (Queue.empty() == true)
+				cout << 1 << endl;
+			else
+				cout << 0 << endl;
+		}
+		else if (command == "front") {
+			if (Queue.empty() == true)
+				cout << -1 << endl;
+			else
+				cout << Queue.front() << endl;  // 큐에서 맨 앞의 원소를 리턴
+		}
+		else if (command == "back") {
+			if (Queue.empty() == true)
+				cout << -1 << endl;
+			else
+				cout << Queue.back() << endl;  // 큐에서 맨 뒤의 원소를 리턴
+		}
+	}
+
+	return 0;
+}
